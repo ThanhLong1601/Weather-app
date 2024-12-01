@@ -4,7 +4,7 @@ require('dotenv').config();
 const weatherApiKey = process.env.WEATHER_API_KEY
 
 const weatherAPI = (lat, lng, callback) => {
-    const url = `http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${lat},${lng}`
+    const url = `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${lat},${lng}`
 
     request({url, json: true}, (error, { body }) => {
         if (error) {

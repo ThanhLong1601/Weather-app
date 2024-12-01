@@ -13,7 +13,7 @@ weatherForm.addEventListener('submit', (event) => {
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
 
-    fetch(`/weather?address=${location}`).then((res) => {
+    fetch(`https://weather-app-production-61f4.up.railway.app/weather?address=${location}`).then((res) => {
         res.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error
