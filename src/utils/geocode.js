@@ -8,6 +8,7 @@ const geocode = (address, callback) => {
     console.log('Searching for location:', address);
 
     request({url, json: true}, (error, { body }) => {
+        console.log('Geocoding API Response:', body);
         if (error) {
             callback('Unable to connect to geocoding service!!!', undefined)
         } else if (body.results.length === 0) {
