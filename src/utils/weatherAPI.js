@@ -16,8 +16,10 @@ const weatherAPI = (lat, lng, callback) => {
             callback(undefined, body.current.condition.text
                 + '. It is currently ' 
                 + body.current.temp_c 
-                + ' degree out. There is a ' 
-                + body.current.precip_mm + 'mm change of rain')
+                + ' degree out. But It feel like ' 
+                + body.current.feelslike_c + ' degree. The humidity is about '
+                + body.current.humidity + ' grams per cubic meter. There is a '
+                + body.current.precip_mm + ' change of rain.')
         }
     })
 }
