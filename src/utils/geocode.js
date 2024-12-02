@@ -5,11 +5,8 @@ const geocodingApiKey = process.env.GEOCODE_API_KEY;
 
 const geocode = (address, callback) => {
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${geocodingApiKey}`;
-    
-    console.log('Searching for location:', address);
 
     request({url, json: true}, (error, { body }) => {
-        console.log('Geocoding API Response:', body);
         if (error) {
             callback('Unable to connect to geocoding service!!!', undefined)
         } else if (body.results.length === 0) {

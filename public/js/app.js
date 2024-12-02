@@ -1,9 +1,11 @@
-console.log('Hello')
-
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
+
+const baseUrl = window.location.hostname === 'localhost'
+    ? 'http://localhost:3000'
+    : 'https://weather-app-production-61f4.up.railway.app'
 
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -13,7 +15,7 @@ weatherForm.addEventListener('submit', (event) => {
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
 
-    fetch(`https://weather-app-production-61f4.up.railway.app/weather?address=${location}`).then((res) => {
+    fetch(`${baseUrl}/weather?address=${location}`).then((res) => {
         res.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error
